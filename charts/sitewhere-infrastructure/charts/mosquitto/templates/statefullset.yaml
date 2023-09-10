@@ -16,6 +16,11 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "mosquitto.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+        sidecar.istio.io/inject	: "true"
+      annotations:
+        traffic.sidecar.istio.io/excludeInboundPorts: "1883,10001,18080"
+        traffic.sidecar.istio.io/excludeOutboundPorts: "1883,10001,18080"  
+
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

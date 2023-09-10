@@ -17,3 +17,9 @@ spec:
         protocol: HTTP
       hosts:
         - {{ .Values.istio.host | quote }}
+    - port:
+        number: 1883
+        name: mqtt
+        protocol: tcp
+      hosts: 
+        - {{ .Values.istio.host | quote }}

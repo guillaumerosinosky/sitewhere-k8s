@@ -21,7 +21,7 @@ spec:
       targetPort: default
       protocol: TCP
       name: default
-      nodePort: 30366
+      #nodePort: 30366
     - port: {{ .Values.service.websocketPort }}
       targetPort: websocket
       protocol: TCP
@@ -32,6 +32,14 @@ spec:
       protocol: TCP
       name: prometheus
     {{- end }}      
+    - name: tcp-bridge
+      port: 10001
+      protocol: TCP
+      targetPort: 10001
+    - name: grpc-bridge
+      port: 18080
+      protocol: TCP
+      targetPort: 18080    
   selector:
     app.kubernetes.io/name: {{ include "mosquitto.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
