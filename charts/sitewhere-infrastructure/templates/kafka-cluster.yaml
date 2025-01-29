@@ -10,7 +10,7 @@ metadata:
     heritage: {{ .Release.Service | quote }}
 spec:
   kafka:
-    version: 2.7.0
+    version: 3.0.0
     replicas: {{ .Values.strimzi.replicas }}
     listeners:
       - name: plain
