@@ -136,7 +136,7 @@ mavenBuilder:
     tag: ""
 resources:
   limits:
-    memory: 384Mi
+    memory: 512Mi
     cpu: 1000m
   requests:
     memory: 384Mi
